@@ -31,7 +31,7 @@ std::string encrypt(std::string plaintext, std::string key){
             convert product to char
             add char to ciphertext
         */
-        ciphertext += static_cast<char>((int(plaintext[i] - '0')) + (int(key[i] - '0')));
+        ciphertext += static_cast<char>((static_cast<int>(plaintext[i] - '0')) + (static_cast<int>(key[i] - '0')));
     }
     //return final product
     return ciphertext;
@@ -49,13 +49,15 @@ std::string decrypt(std::string ciphertext, std::string key){
             convert product to char
             add char to plain text
         */
-        plaintext += static_cast<char>((int(ciphertext[i]) - int(key[i] - '0') + '0'));
+        plaintext += static_cast<char>((static_cast<int>(ciphertext[i]) - static_cast<int>(key[i] - '0') + '0'));
     }
     //return final product
     return plaintext;
 }
 
 int main(){
+    //Disclaimer
+    std::cout << "PLEASE NOTE THAT ON ASCII SYSTEMS, SOME CHARACTERS MAY NOT APPEAR PROPERLY IN THE CIPHERTEXT\n";
     std::string plaintext = "";
     //Get Plaintext
     std::cout << "Enter Text to cipher: \n";
@@ -77,7 +79,6 @@ int main(){
     //Decrypt ciphertext and return plaintext back to user
     std::cout << "==== DECRPYTING CIPHERTEXT WITH KEY ====\n";
     std::cout << "Decrpyted Text is: " << decrypt(ciphertext, key) << "\n";
-
     //exit
     return 0;
 }
