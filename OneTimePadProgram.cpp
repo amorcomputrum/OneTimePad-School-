@@ -59,10 +59,10 @@ int main(){
     std::string plaintext = "";
     //Get Plaintext
     std::cout << "Enter Text to cipher: \n";
-    getline(std::cin, text);
+    getline(std::cin, plaintext);
 
     //Return Plaintext to user
-    std::cout << "Your Text is: " << text << "\n\n";
+    std::cout << "Your Text is: " << plaintext << "\n\n";
 
     //Genereate Key using the length of the plain text, store it, then return it to the user
     std::cout << "==== GENERATING KEY ====\n";
@@ -71,8 +71,8 @@ int main(){
 
     //Encrypt Plaintext, store it, then return ciphertext to user
     std::cout << "==== ENCRYPTING PLAINTEXT WITH KEY ====\n";
-    std::string ciphertext = encrypt(text,key);
-    std::cout << "Your ciphertext is: " << encrypt(text,key) << "\n\n";
+    std::string ciphertext = encrypt(plaintext,key);
+    std::cout << "Your ciphertext is: " << encrypt(plaintext,key) << std::endl << std::endl;//Use of std::endl because it glitches if the output isn't flushed
 
     //Decrypt ciphertext and return plaintext back to user
     std::cout << "==== DECRPYTING CIPHERTEXT WITH KEY ====\n";
